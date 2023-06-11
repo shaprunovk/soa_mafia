@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package grpc;
+
+message Empty {}
+
+message Message {
+    optional int32 player_id = 1;
+    optional string name = 2;
+    string message = 3;
+    repeated int32 to = 4;
+}
+
+message Connection {
+    string nickname = 1;
+}
+
+message ConnectionReply {
+    int32 player_id = 1;
+}
+
+service GameServer {
+    rpc GameStream (Empty) returns (stream Message);
+    rpc SendMessage (Message) returns (Empty);
+    rpc Connect (Connection) returns (ConnectionReply);
+}
