@@ -1,11 +1,12 @@
-FROM python:3.8
+FROM python:latest
 
-COPY ./requirements.txt .
-COPY ./server.py .
-COPY ./commands.py .
+COPY ./mafia_server.py .
+COPY ./mafia_commands.py .
 COPY ./game_config.py .
 COPY ./proto ./proto
 
+COPY ./requirements.txt .
+
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["python3", "server.py"]
+CMD ["python3", "mafia_server.py"]

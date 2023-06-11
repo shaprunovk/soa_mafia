@@ -7,7 +7,7 @@ import proto.game_pb2 as game
 import proto.game_pb2_grpc as rpc
 
 from game_config import config
-from commands import client_commands
+from mafia_commands import client_commands
 from concurrent import futures
 from collections import Counter
 
@@ -57,6 +57,13 @@ class GameServer(rpc.GameServerServicer):
         self._game_running = False
         self._voting = []
         self._voted = []
+        self._active_role = None
+        self._time = None
+
+    def set_default(self):
+        self._time = None
+        self._voted = []
+        self._voting = []
         self._active_role = None
         self._time = None
 
@@ -306,12 +313,6 @@ class GameServer(rpc.GameServerServicer):
             self.send_message("\nCITIZENS WON!\n")
         self.set_default()
 
-    def set_default(self):
-        self._time = None
-        self._voted = []
-        self._voting = []
-        self._active_role = None
-        self._time = None
 
 
 if __name__ == '__main__':

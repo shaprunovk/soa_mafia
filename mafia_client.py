@@ -5,7 +5,7 @@ import proto.game_pb2 as game
 import proto.game_pb2_grpc as rpc
 
 from game_config import config
-from commands import client_commands
+from mafia_commands import client_commands
 
 HOST = 'localhost'
 PORT = config.PORT

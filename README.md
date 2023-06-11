@@ -11,7 +11,7 @@ Mafia (Werewolves) game on Python
      ```
   2. Отредактировать конфиг по пути ```game_config.py``` (если требуется).
   3. Запустить:
-     ```python3 server.py```
+     ```python3 mafia_server.py```
 - **Docker**
     - Собрать image
         ```
@@ -29,7 +29,7 @@ Mafia (Werewolves) game on Python
      pip3 install -r requirements.txt
      ```
  2. Запустить:
-     ```python3 client.py```
+     ```python3 mafia_client.py```
 
 ### Игра
 Игра начинается, когда к серверу подключается `PLAYERS_COUNT` в конфиге (`game_config.py`) количество человек.
